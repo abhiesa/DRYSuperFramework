@@ -1,0 +1,72 @@
+# https://github.com/django/django/blob/master/django/contrib/auth/models.py
+# https://en.wikipedia.org/wiki/Java_Persistence_Query_Language
+content_type:
+  app_label:
+    type: string
+    max_length: 100
+  model:
+    type: string
+    max_length: 100
+
+group:
+  name:
+    type: string
+    max_length: 80
+    unique: True
+  permissions:
+    type: many_to_many
+    model: permission
+
+permission:
+  codename:
+    type: string
+    max_length: 100
+  content_type:
+    type: many_to_one
+    model: content_type
+  name:
+    type: string
+    max_length: 255
+
+user:
+  email:
+    type: email
+    blank: True
+  first_name:
+    type: string
+    max_length: 30
+    blank: True
+  last_name:
+    type: string
+    max_length: 150
+    blank: True
+  username:
+    type: string
+    max_length: 150
+    unique: True
+  password:
+    type: string
+    max_length: 128
+  is_active:
+    type: boolean
+    default: True
+  is_staff:
+    type: boolean
+    default: False
+  is_superuser:
+    type: boolean
+    default: False
+  date_joined:
+    type: date_time
+    default: now
+  last_login:
+    type: date_time
+    blank: True
+  groups:
+    type: many_to_many
+    model: group
+    blank: True
+  permissions:
+    type: many_to_many
+    model: permission
+    blank: True
