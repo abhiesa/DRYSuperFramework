@@ -13,9 +13,10 @@ and [Swagger](https://swagger.io/), based on these parts:
 
 # Tools
 * **doc:**
+[Atom](https://atom.io/) |
+[Markdown](https://guides.github.com/features/mastering-markdown/) |
 [yEd](https://www.yworks.com/products/yed)
 * **Configuration:**
-[Atom](https://atom.io/) |
 [YAML](http://www.yaml.org/)
 * **Generator:**
 [ruamel.yaml](http://yaml.readthedocs.io/)
