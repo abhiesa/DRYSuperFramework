@@ -29,3 +29,6 @@ and [Swagger](https://swagger.io/), based on these parts:
 [Angular2](https://angular.io/) |
 [Material2](https://material.angular.io/) |
 [Angular CLI](https://cli.angular.io/)
+* **Test:**
+[Requests](http://docs.python-requests.org/) |
+[Selenium](http://selenium-python.readthedocs.io/)
