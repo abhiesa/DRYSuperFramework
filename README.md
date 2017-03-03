@@ -11,7 +11,7 @@ and [Swagger](https://swagger.io/), based on these parts:
 
 ![overview](doc/schemas/overview.jpg)
 
-# Tools
+## Tools
 * **doc:**
 [Atom](https://atom.io/) |
 [Markdown](https://guides.github.com/features/mastering-markdown/) |
@@ -33,3 +33,6 @@ and [Swagger](https://swagger.io/), based on these parts:
 * **Test:**
 [Requests](http://docs.python-requests.org/) |
 [Selenium](http://selenium-python.readthedocs.io/)
+
+## MIT License
+[https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
