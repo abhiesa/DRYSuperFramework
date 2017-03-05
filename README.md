@@ -24,7 +24,8 @@ and [Swagger](https://swagger.io/), based on these parts:
 * **Backend:**
 [STS](https://spring.io/tools/sts) |
 [Spring Boot](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/) |
-[Spring Data JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/)
+[Spring Data JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/) |
+[Spring Data REST](http://docs.spring.io/spring-data/rest/docs/current/reference/html/)
 * **Front-end:**
 [Visual Studio Code](https://code.visualstudio.com/) |
 [TypeScript](https://www.typescriptlang.org/) |
