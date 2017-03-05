@@ -1,3 +1,8 @@
 <p>
-  users works!
+  Users length: {{ users.length }}
 </p>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.firstName }}
+  </li>
+</ul>
