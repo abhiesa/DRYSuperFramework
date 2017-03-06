@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.github.rognoni.generated.entities.User;
 
 @CrossOrigin
-//@RepositoryRestResource
+@RepositoryRestResource
 public interface UserRepository extends CrudRepository<User, Long> {
 
 }

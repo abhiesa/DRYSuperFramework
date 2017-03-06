@@ -8,16 +8,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { UsersModule } from './users/users.module';
-//import { UsersRoutingModule } from './users/users-routing.module';
-//import { UsersComponent } from './users/users.component';
-//import { UsersService } from './users/users.service';
+import { UsersModule } from './generated/users/users.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent
-    //UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +21,6 @@ import { UsersModule } from './users/users.module';
     HttpModule,
     MaterialModule,
     AppRoutingModule,
-    //UsersRoutingModule
     UsersModule
   ],
   providers: [],
