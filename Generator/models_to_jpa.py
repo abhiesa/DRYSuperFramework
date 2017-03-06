@@ -27,12 +27,35 @@ def generate_jpa():
 
     for model_name in yaml:
         print('Model name: %s' % model_name)
+        model = yaml[model_name]
 
         class_name = camel_case(model_name)
+        attributes = []
+
+        for field_name in model:
+            print('- Field name: %s' % field_name)
+            field = model[field_name]
+
+            attribute = {}
+            attribute['name2'] = camel_case(field_name)
+            attribute['name'] = attribute['name2'][0].lower() + attribute['name2'][1:]
+            field_type = field['type']
+
+            if field_type == 'string':
+                attribute['type'] = 'String'
+
+            elif field_type == 'boolean':
+                attribute['type'] = 'Boolean'
+
+            else:
+                attribute['type'] = '???'
+
+            attributes.append(attribute)
 
         file_name = '%s.java' % class_name
         fw = open(os.path.join(DIR_GENERATED_ENTITIES, file_name), 'w')
-        fw.write(entityTmpl.render(class_name=class_name))
+        fw.write(entityTmpl.render(
+            class_name=class_name, attributes=attributes))
         fw.close()
 
         file_name = '%sRepository.java' % class_name

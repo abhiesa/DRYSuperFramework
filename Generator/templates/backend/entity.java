@@ -12,22 +12,18 @@ public class ${class_name} {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	private String firstName;
-	private String lastName;
+% for attribute in attributes:
+	private ${attribute['type']} ${attribute['name']};
+% endfor
 
-	public String getFirstName() {
-		return firstName;
+% for attribute in attributes:
+	public ${attribute['type']} get${attribute['name2']}() {
+		return ${attribute['name']};
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void set${attribute['name2']}(${attribute['type']} ${attribute['name']}) {
+		this.${attribute['name']} = ${attribute['name']};
 	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+	
+% endfor
 }
