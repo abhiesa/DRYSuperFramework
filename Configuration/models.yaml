@@ -8,7 +8,7 @@ content_type:
     type: string
     max_length: 100
 
-group:
+group_table:
   name:
     type: string
     max_length: 80
@@ -64,7 +64,7 @@ user:
     blank: True
   groups:
     type: many_to_many
-    model: group
+    model: group_table
     blank: True
   permissions:
     type: many_to_many

@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Group {
+public class GroupTable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

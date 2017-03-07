@@ -26,7 +26,7 @@ public class User {
 	private Date dateJoined;
 	private Date lastLogin;
 	@ManyToMany
-	private List<Group> groups;
+	private List<GroupTable> groups;
 	@ManyToMany
 	private List<Permission> permissions;
 
@@ -110,11 +110,11 @@ public class User {
 		this.lastLogin = lastLogin;
 	}
 
-	public List<Group> getGroups() {
+	public List<GroupTable> getGroups() {
 		return groups;
 	}
 
-	public void setGroups(List<Group> groups) {
+	public void setGroups(List<GroupTable> groups) {
 		this.groups = groups;
 	}
 
