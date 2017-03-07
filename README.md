@@ -25,7 +25,8 @@ and [Swagger](https://swagger.io/), based on these parts:
 [STS](https://spring.io/tools/sts) |
 [Spring Boot](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/) |
 [Spring Data JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/) |
-[Spring Data REST](http://docs.spring.io/spring-data/rest/docs/current/reference/html/)
+[Spring Data REST](http://docs.spring.io/spring-data/rest/docs/current/reference/html/) |
+[H2 database](http://www.h2database.com/)
 * **Front-end:**
 [Visual Studio Code](https://code.visualstudio.com/) |
 [TypeScript](https://www.typescriptlang.org/) |
