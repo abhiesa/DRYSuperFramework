@@ -9,8 +9,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "dry_user")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,7 +30,7 @@ public class User {
 	private Date dateJoined;
 	private Date lastLogin;
 	@ManyToMany
-	private List<GroupTable> groups;
+	private List<Group> groups;
 	@ManyToMany
 	private List<Permission> permissions;
 
@@ -112,11 +114,11 @@ public class User {
 		this.lastLogin = lastLogin;
 	}
 
-	public List<GroupTable> getGroups() {
+	public List<Group> getGroups() {
 		return groups;
 	}
 
-	public void setGroups(List<GroupTable> groups) {
+	public void setGroups(List<Group> groups) {
 		this.groups = groups;
 	}
 

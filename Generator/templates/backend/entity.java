@@ -20,8 +20,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "dry_${model_name}")
 public class ${class_name} {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

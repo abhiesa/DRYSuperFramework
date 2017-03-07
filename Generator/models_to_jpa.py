@@ -82,6 +82,7 @@ def generate_jpa():
         file_name = '%s.java' % class_name
         fw = open(os.path.join(DIR_GENERATED_ENTITIES, file_name), 'w')
         fw.write(entityTmpl.render(
+            model_name=model_name,
             class_name=class_name,
             imports=imports,
             attributes=attributes))
