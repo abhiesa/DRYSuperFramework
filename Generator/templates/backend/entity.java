@@ -1,8 +1,19 @@
 // Generated file
 package com.github.rognoni.generated.entities;
 
+% if imports.count('Date') > 0:
+import java.util.Date;
+% endif
+% if imports.count('List') > 0:
+import java.util.List;
+% endif
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany; // TODO generator: to add only if used
+% if imports.count('ManyToOne') > 0:
+import javax.persistence.ManyToOne;
+% endif
+% if imports.count('ManyToMany') > 0:
+import javax.persistence.ManyToMany;
+% endif
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,7 +22,7 @@ import javax.persistence.Id;
 public class ${class_name} {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 
 % for attribute in attributes:
 	% if attribute.has_key('annotation'):
@@ -19,8 +30,8 @@ public class ${class_name} {
 	% endif
 	private ${attribute['type']} ${attribute['name']};
 % endfor
-
 % for attribute in attributes:
+
 	public ${attribute['type']} get${attribute['name2']}() {
 		return ${attribute['name']};
 	}
@@ -28,6 +39,5 @@ public class ${class_name} {
 	public void set${attribute['name2']}(${attribute['type']} ${attribute['name']}) {
 		this.${attribute['name']} = ${attribute['name']};
 	}
-
 % endfor
 }

@@ -30,6 +30,7 @@ def generate_jpa():
         model = yaml[model_name]
 
         class_name = camel_case(model_name)
+        imports = []
         attributes = []
 
         for field_name in model:
@@ -44,9 +45,23 @@ def generate_jpa():
             if field_type == 'boolean':
                 attribute['type'] = 'Boolean'
 
+            elif field_type == 'date_time':
+                attribute['type'] = 'Date'
+                imports.append('Date')
+
+            elif field_type == 'email':
+                attribute['type'] = 'String'
+
+            elif field_type == 'many_to_one':
+                attribute['type'] = camel_case(field['model'])
+                attribute['annotation'] = '@ManyToOne'
+                imports.append('ManyToOne')
+
             elif field_type == 'many_to_many':
                 attribute['type'] = 'List<%s>' % camel_case(field['model'])
                 attribute['annotation'] = '@ManyToMany'
+                imports.append('List')
+                imports.append('ManyToMany')
 
             elif field_type == 'string':
                 attribute['type'] = 'String'
@@ -59,7 +74,9 @@ def generate_jpa():
         file_name = '%s.java' % class_name
         fw = open(os.path.join(DIR_GENERATED_ENTITIES, file_name), 'w')
         fw.write(entityTmpl.render(
-            class_name=class_name, attributes=attributes))
+            class_name=class_name,
+            imports=imports,
+            attributes=attributes))
         fw.close()
 
         file_name = '%sRepository.java' % class_name
