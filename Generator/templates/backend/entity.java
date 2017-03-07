@@ -2,6 +2,7 @@
 package com.github.rognoni.generated.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany; // TODO generator: to add only if used
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +14,9 @@ public class ${class_name} {
 	private long id;
 
 % for attribute in attributes:
+	% if attribute.has_key('annotation'):
+	${attribute['annotation']}
+	% endif
 	private ${attribute['type']} ${attribute['name']};
 % endfor
 
@@ -24,6 +28,6 @@ public class ${class_name} {
 	public void set${attribute['name2']}(${attribute['type']} ${attribute['name']}) {
 		this.${attribute['name']} = ${attribute['name']};
 	}
-	
+
 % endfor
 }

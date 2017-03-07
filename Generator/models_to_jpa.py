@@ -41,11 +41,15 @@ def generate_jpa():
             attribute['name'] = attribute['name2'][0].lower() + attribute['name2'][1:]
             field_type = field['type']
 
-            if field_type == 'string':
-                attribute['type'] = 'String'
-
-            elif field_type == 'boolean':
+            if field_type == 'boolean':
                 attribute['type'] = 'Boolean'
+
+            elif field_type == 'many_to_many':
+                attribute['type'] = 'List<%s>' % camel_case(field['model'])
+                attribute['annotation'] = '@ManyToMany'
+
+            elif field_type == 'string':
+                attribute['type'] = 'String'
 
             else:
                 attribute['type'] = '???'
