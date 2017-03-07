@@ -31,15 +31,13 @@ permission:
 user:
   email:
     type: email
-    blank: True
+    nullable: False
   first_name:
     type: string
     max_length: 30
-    blank: True
   last_name:
     type: string
     max_length: 150
-    blank: True
   username:
     type: string
     max_length: 150
@@ -61,12 +59,9 @@ user:
     default: now
   last_login:
     type: date_time
-    blank: True
   groups:
     type: many_to_many
     model: group_table
-    blank: True
   permissions:
     type: many_to_many
     model: permission
-    blank: True

@@ -42,6 +42,8 @@ def generate_jpa():
             attribute['name'] = attribute['name2'][0].lower() + attribute['name2'][1:]
             field_type = field['type']
 
+            # ATTRIBUTE TYPE/MAPPING, IMPORTS
+
             if field_type == 'boolean':
                 attribute['type'] = 'Boolean'
 
@@ -54,12 +56,12 @@ def generate_jpa():
 
             elif field_type == 'many_to_one':
                 attribute['type'] = camel_case(field['model'])
-                attribute['annotation'] = '@ManyToOne'
+                attribute['mapping_annotation'] = '@ManyToOne'
                 imports.append('ManyToOne')
 
             elif field_type == 'many_to_many':
                 attribute['type'] = 'List<%s>' % camel_case(field['model'])
-                attribute['annotation'] = '@ManyToMany'
+                attribute['mapping_annotation'] = '@ManyToMany'
                 imports.append('List')
                 imports.append('ManyToMany')
 
@@ -68,6 +70,12 @@ def generate_jpa():
 
             else:
                 attribute['type'] = '???'
+
+            # COLUMN ANNOTATION, IMPORTS
+
+            if field.get('nullable') == False:
+                attribute['column_annotation'] = '@Column(nullable=false)'
+                imports.append('Column')
 
             attributes.append(attribute)
 
