@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
 import { UsersService } from './users.service';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { UsersService } from './users.service';
     UsersRoutingModule
   ],
   declarations: [
-    UsersComponent
+    UsersComponent,
+    UserFormComponent
   ],
   providers: [UsersService]
 })
