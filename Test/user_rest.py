@@ -45,8 +45,21 @@ def test_all():
         "groups": groups_hrefs
     }
 
-    r = requests.post('http://localhost:8080/users', headers=HEADERS_JSON, data=json.dumps(user_json))
+    rj = requests.post('http://localhost:8080/users', headers=HEADERS_JSON, data=json.dumps(user_json)).json()
+    user_href = rj['_links']['user']['href']
+
+    # UPDATE
+
+    user_json = {
+        "email": "fb2@example.com",
+        "firstName": "Frodo",
+        "lastName": "Baggins",
+        "groups": groups_hrefs[:-1]
+    }
+
+    r = requests.put(user_href, headers=HEADERS_JSON, data=json.dumps(user_json))
     print r.text
+
 
 if __name__ == '__main__':
     test_all()
